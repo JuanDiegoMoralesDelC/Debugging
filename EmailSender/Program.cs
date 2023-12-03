@@ -1,4 +1,5 @@
 
+using EmailSender.Models;
 using EmailSender.Services;
 
 namespace EmailSender
@@ -16,6 +17,7 @@ namespace EmailSender
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSingleton<ILoggerProvider, FileLoggerProvider>();
+            builder.Services.Configure<EmailConfiguration>(builder.Configuration.GetSection(nameof(EmailConfiguration)));
 
             var app = builder.Build();
 

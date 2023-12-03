@@ -1,4 +1,6 @@
 
+using Logging.Services;
+
 namespace Logging
 {
     public class Program
@@ -13,6 +15,7 @@ namespace Logging
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddSingleton<ILoggerProvider, FileLoggerProvider>();
 
             var app = builder.Build();
 
